@@ -1,5 +1,4 @@
 import { Link, router } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
 import { ImageBackground, StyleSheet, Text, View,Image, Pressable } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -14,7 +13,9 @@ export default function WelcomePage() {
 
 <View style={styles.bb}>
     <Pressable onPress={()=>router.push('starpage/Start')}   style={styles.button}>
-        <AntDesign name="right" size={24} color="#FFFFFF" />
+
+    <AntDesign name="right" size={24} color="#FFFFFF" />
+
     </Pressable>
 
     </View>
@@ -32,9 +33,9 @@ const styles = StyleSheet.create({
    flex:1, },
 
    button:{
-    height:60,
-    width:60,
-    borderRadius:30,
+    height:90,
+    width:90,
+    borderRadius:45,
     backgroundColor:"#DBA6F7",
     alignItems:"center",
     justifyContent:"center"

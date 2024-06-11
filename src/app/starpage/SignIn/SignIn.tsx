@@ -9,7 +9,7 @@ const SignIn = () => {
   const[Password,setPassword]=useState('')
 
   const OnSignInPressed=()=>{
-    router.push('starpage/SignIn/HomePage/HomePage')
+    router.push('starpage/SignIn/(tabs)')
   }
 
   const OnForgottenPass=()=>{

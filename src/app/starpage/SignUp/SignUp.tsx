@@ -2,6 +2,8 @@ import { StyleSheet, Text, View,Image, TextInput,Pressable} from 'react-native'
 import React, { useState } from 'react'
 import { Ionicons,EvilIcons, FontAwesome,Fontisto,MaterialCommunityIcons} from '@expo/vector-icons';
 import { router,Link } from 'expo-router';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { firebaseAuth } from '../../../../Config/firebase.config';
 
 const SignUp = () => {
   const[UserName,setUserName]=useState('')
@@ -9,8 +11,10 @@ const SignUp = () => {
   const[Email,setEmail]=useState('')
   const[Age,setAge]=useState('')
 
-  const OnSignUPPressed=()=>{
-    router.push('starpage/SignIn/SignIn')
+  const OnSignUPPressed= async()=>{
+    await createUserWithEmailAndPassword(firebaseAuth,Email,Password).then((usercred)=>{
+      console.log(usercred.user)
+    })
   }
 
   const OnForgottenPass=()=>{
@@ -104,7 +108,7 @@ const SignUp = () => {
 
 <View style={{flexDirection:"row" ,justifyContent:"center",marginTop:20,marginLeft:35}}>
 
-  <Pressable onPress={OnSignInGmail} style={{marginRight:25}}>
+<Pressable onPress={OnSignInGmail} style={{marginRight:25}}>
   <Image source={require("../../../../assets/gmail.png")}/>
   </Pressable>
 

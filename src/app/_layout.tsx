@@ -13,7 +13,7 @@ const _layout = () => {
         <Stack.Screen name='starpage/SignIn/Forgot/Confirm/Confirm' options={{headerShown:false}}/>
         <Stack.Screen name='starpage/SignIn/Forgot/Confirm/ReConf/ReConf' options={{headerShown:false}}/>
 
-        <Stack.Screen name='starpage/SignIn/HomePage/HomePage' options={{headerShown:false}}/>
+        <Stack.Screen name='starpage/SignIn/(tabs)' options={{headerShown:false}}/>
 
 
        
