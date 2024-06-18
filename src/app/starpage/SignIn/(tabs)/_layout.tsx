@@ -1,5 +1,4 @@
 import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Foundation, Entypo,FontAwesome5,MaterialCommunityIcons  } from '@expo/vector-icons';
 
 import { Tabs } from 'expo-router';
@@ -20,7 +19,7 @@ export default function TabLayout() {
 
 
 <Tabs.Screen
-        name="Excersise/Excer"
+        name="Excersise/index"
         options={{
           title: 'التمارين',
           tabBarIcon: ({ color }) => <Entypo name="stopwatch" size={28} color={color} />,

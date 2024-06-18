@@ -42,6 +42,7 @@ const LispTestItem = ({Problem}:LispTestProps) => {
 
 
   return (
+    <>
     <View style={styles.container}>
     <View style={styles.testo}>
   
@@ -78,6 +79,10 @@ const LispTestItem = ({Problem}:LispTestProps) => {
     </View>
   
   </View>
+
+<View style={{height:1,width:'100%',backgroundColor:"#DBA6F7",marginTop:5}}/>
+</>
+
     
   )
 }
@@ -100,7 +105,7 @@ const styles = StyleSheet.create({
         flex:1,
     alignItems:"center",
     justifyContent:"flex-start",
-    marginTop:20,
+    marginTop:15,
     
     
       },

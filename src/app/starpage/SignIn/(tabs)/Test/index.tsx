@@ -24,7 +24,7 @@ const SecHome = () => {
         <Text style={styles.textStylo}>بدء اختبار اللثغه</Text>
       </Pressable>
 
-      <Pressable  style={styles.buttonTwo}  onPress={()=>router.push('starpage/SignIn/(tabs)/Test/StutResult')}>
+      <Pressable  style={styles.buttonTwo}  onPress={()=>router.push('starpage/SignIn/(tabs)/Test/StutTest')}>
         <Text style={styles.textStylo}>بدء اختبار التلعثم</Text>
       </Pressable>
 
