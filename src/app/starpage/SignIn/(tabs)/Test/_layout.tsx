@@ -11,7 +11,11 @@ export default function TestStack(){
         <Stack.Screen name="LispTest" options={{
         headerTitleAlign:"center",headerTitle:"الاختبارات",headerTitleStyle:{fontSize:18,fontWeight:"bold",color:"#9A69D8"}
     }}/>
-        <Stack.Screen name="StutTest" options={{headerShown:false}}/>
-        <Stack.Screen name="StutResult" options={{headerShown:false}}/>
+        <Stack.Screen name="StutTest" options={{
+        headerTitleAlign:"center",headerTitle:"الاختبارات",headerTitleStyle:{fontSize:18,fontWeight:"bold",color:"#9A69D8"}
+    }}/>
+        <Stack.Screen name="StutResult" options={{
+        headerTitleAlign:"center",headerTitle:"النتيجه",headerTitleStyle:{fontSize:18,fontWeight:"bold",color:"#9A69D8"}
+    }}/>
     </Stack>
 }
