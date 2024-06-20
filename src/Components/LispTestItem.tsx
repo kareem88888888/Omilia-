@@ -1,11 +1,15 @@
 import { StyleSheet, Text, View,Image,Pressable } from 'react-native'
 import React from 'react'
-import { useState } from 'react';
-import { Audio } from 'expo-av';
+import { useState,useContext } from 'react';
+
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { LispItem } from '../Types';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+
+import { Audio } from 'expo-av';
+
+
 
 
 export const defaultImage = require('../../assets/LSimages/1.png')
@@ -19,12 +23,17 @@ Problem:LispItem
 
 
 const LispTestItem = ({Problem}:LispTestProps) => {
+  
 
     const [isPlaying, setIsPlaying] = useState(false);
+
+
   const[pressedone,setpressedone]=useState(false)
   const[pressedtwo,setpressedtwo]=useState(false)
-  const[pressedthree,setpressedthree]=useState(false)
+const[recording,setRrecording]=useState(false)
+  
 
+  
 
   const handleOnPressin=()=>{
     setpressedone(true)
@@ -42,14 +51,20 @@ const LispTestItem = ({Problem}:LispTestProps) => {
     setpressedtwo(false)
   }
 
-  const handleonPressThree=()=>{
-    setpressedthree(!pressedthree)
-  }
+  
+
+  
+
 
 
 
   return (
     <>
+    
+
+
+
+   
     <View style={styles.container}>
     <View style={styles.testo}>
   
@@ -91,13 +106,19 @@ const LispTestItem = ({Problem}:LispTestProps) => {
           <Image source={require('../../assets/Voice.png')} resizeMode='stretch'/>
         </View>
 
-        <Pressable style={styles.micButton} onPress={handleonPressThree} >
-          {pressedthree ? <FontAwesome name="square" size={30} color="white" /> : <MaterialIcons name="mic" size={50} color="white" />}
-          
+        <Pressable style={styles.micButton}  
+ >
+
+         
+
+         {recording ? <FontAwesome name="square" size={30} color="white" /> : <MaterialIcons name="mic" size={50} color="white" />}
+
         </Pressable>
 
       </View>
     </View>
+
+
   
   
     </View>
@@ -108,6 +129,9 @@ const LispTestItem = ({Problem}:LispTestProps) => {
   </View>
 
 <View style={{height:1,width:'100%',backgroundColor:"#DBA6F7",marginTop:5}}/>
+
+
+
 </>
 
     

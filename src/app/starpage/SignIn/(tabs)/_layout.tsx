@@ -19,7 +19,7 @@ export default function TabLayout() {
 
 
 <Tabs.Screen
-        name="Excersise/index"
+        name="Excersise"
         options={{
           title: 'التمارين',
           tabBarIcon: ({ color }) => <Entypo name="stopwatch" size={28} color={color} />,

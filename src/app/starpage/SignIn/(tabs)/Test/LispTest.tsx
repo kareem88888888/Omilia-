@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View ,Image, Pressable,FlatList,ScrollView,SafeAreaView} from 'react-native'
 import { router } from 'expo-router'
 import React from 'react'
-
+import { useContext ,useState,useEffect } from 'react'
 import Lisps from '../../../../../../assets/data/Lisp'
 import LispTestItem from '../../../../../Components/LispTestItem'
 
@@ -9,12 +9,22 @@ import LispTestItem from '../../../../../Components/LispTestItem'
 
 
 
+
+
+
 const LispTest = () => {
+ 
+  
+
   
   
 
   return (
     <>
+    
+
+
+   
     <View style={{flex:1}}>
 
     <View style={{flexDirection:'row',justifyContent:"flex-end",paddingTop:12,}}>
@@ -33,15 +43,22 @@ const LispTest = () => {
     <View style={{height:3,width:'100%',backgroundColor:"#DBA6F7",marginRight:20,elevation:15}}/>
 
 <SafeAreaView style={{flex:1}}>
+
+
+
 <FlatList 
 
 data={Lisps} 
 renderItem={({item})=><LispTestItem Problem={item}/>}
 ListFooterComponent={
 <View style={{alignItems:"center"}}>
-<Pressable  style={styles.buttonTwo}  onPress={()=>router.push('starpage/SignIn/(tabs)/Test/LispResult')}>
+
+<Pressable  style={styles.buttonTwo}  onPress={
+  
+  ()=> {router.push('starpage/SignIn/(tabs)/Test/LispResult') }}>
         <Text style={styles.textStylo}>انهاء الاختبار و اظهار النتيجه</Text>
       </Pressable>
+
 </View>}
 />
 </SafeAreaView>
@@ -49,7 +66,6 @@ ListFooterComponent={
   
 
 </View>
-
 
 
 
