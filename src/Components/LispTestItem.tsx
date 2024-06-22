@@ -7,13 +7,43 @@ import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { LispItem } from '../Types';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
+
+
 import { Audio } from 'expo-av';
+
 
 
 
 
 export const defaultImage = require('../../assets/LSimages/1.png')
 export const defaultAudio = require('../../assets/LSound/Recording.m4a')
+
+
+const recordingOptions = {
+  android: {
+    extension: '.m4a',
+    outputFormat: Audio.RECORDING_OPTION_ANDROID_OUTPUT_FORMAT_MPEG_4,
+    audioEncoder: Audio.RECORDING_OPTION_ANDROID_AUDIO_ENCODER_AAC,
+    sampleRate: 44100,
+    numberOfChannels: 2,
+    bitRate: 128000,
+  },
+  ios: {
+    extension: '.m4a',
+    audioQuality: Audio.RECORDING_OPTION_IOS_AUDIO_QUALITY_HIGH,
+    sampleRate: 44100,
+    numberOfChannels: 2,
+    bitRate: 128000,
+    linearPCMBitDepth: 16,
+    linearPCMIsBigEndian: false,
+    linearPCMIsFloat: false,
+  },
+  web: {
+    mimeType: 'audio/webm',
+    bitsPerSecond: 128000,
+  },
+};
+
 
 
 
@@ -24,13 +54,18 @@ Problem:LispItem
 
 const LispTestItem = ({Problem}:LispTestProps) => {
   
+  
 
     const [isPlaying, setIsPlaying] = useState(false);
 
 
   const[pressedone,setpressedone]=useState(false)
   const[pressedtwo,setpressedtwo]=useState(false)
-const[recording,setRrecording]=useState(false)
+
+const[recording,setRrecording]=useState<any>(null)
+
+
+
   
 
   
@@ -53,10 +88,41 @@ const[recording,setRrecording]=useState(false)
 
   
 
-  
+  const startRecording = async () => {
+    try {
+      console.log('Requesting permissions...');
+      const permission = await Audio.requestPermissionsAsync();
+      if (permission.status === 'granted') {
+        console.log('Permissions granted.');
+        await Audio.setAudioModeAsync({
+          allowsRecordingIOS: true,
+          playsInSilentModeIOS: true,
+        });
 
+        console.log('Starting recording...');
+        const { recording } = await Audio.Recording.createAsync(recordingOptions);
+        setRrecording(recording);
+        console.log('Recording started.');
+      } else {
+        alert('Permission to access microphone is required!');
+      }
+    } catch (err) {
+      console.error('Failed to start recording', err);
+    }
+  };
 
-
+  const stopRecording = async () => {
+    try {
+      console.log('Stopping recording...');
+      await recording.stopAndUnloadAsync();
+      const uri = recording.getURI();
+      addRecordingUri(uri); // Add the URI to context
+      setRrecording(null);
+      console.log('Recording stopped and URI added:', uri);
+    } catch (err) {
+      console.error('Failed to stop recording', err);
+    }
+  };
 
   return (
     <>
@@ -106,8 +172,7 @@ const[recording,setRrecording]=useState(false)
           <Image source={require('../../assets/Voice.png')} resizeMode='stretch'/>
         </View>
 
-        <Pressable style={styles.micButton}  
- >
+        <Pressable style={styles.micButton} onPress={recording ? stopRecording : startRecording}>
 
          
 
