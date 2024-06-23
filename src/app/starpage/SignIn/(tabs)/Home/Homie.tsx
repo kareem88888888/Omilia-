@@ -31,12 +31,11 @@ const Home = () => {
       
 
 <View style={{margin:3}}>
-<Text style={styles.txt}>بدء الاختبار</Text>
 
 <View style={{alignItems:'center'}}>
 <Pressable style={styles.buttonCard} onPress={()=>router.push('starpage/SignIn/(tabs)/Test')}>
-<Text style={{fontSize:18,color:"white", padding:5}}>ابدأ الاختبار</Text>
-<Text style={{fontSize:18,color:"#455A64", padding:5}}>يمكنك بدءالاختبار للتعرف على المشاكل لديك  أو يمكنك اعادة الاختبار مرة اخرى لمعرفة مدى تقدم مستواك</Text>
+<Text style={{fontSize:18,color:"white", padding:5}}>الاختبارات</Text>
+<Text style={{fontSize:18,color:"#455A64", padding:5}}>قم باجراء اختبار للمشاكل المختلفه لمعرفة مستوى و انواع المشكله لديك</Text>
 </Pressable>
 </View>
 
@@ -45,13 +44,11 @@ const Home = () => {
 
 <View style={{margin:3}}>
 
-<Text style={styles.txt}> التدريبات</Text>
-
    <View style={{alignItems:'center'}}>
 
-<Pressable style={styles.buttonCard}>
-<Text style={{fontSize:18,color:"white", padding:5}}>ابدأالتدريبات</Text>
-<Text style={{fontSize:18,color:"#455A64", padding:5}}>يمكنك بدءالاختبار للتعرف على المشاكل لديك  أو يمكنك اعادة الاختبار مرة اخرى لمعرفة مدى تقدم مستواك</Text>
+<Pressable style={styles.buttonCard} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise')} >
+<Text style={{fontSize:18,color:"white", padding:5}}>التمارين</Text>
+<Text style={{fontSize:18,color:"#455A64", padding:5}}>مجموعة من التمارين تساعدك في حل مشكلتك</Text>
 </Pressable>
 
    </View>

@@ -7,6 +7,7 @@ import * as FileSystem from 'expo-file-system';
 import { Audio } from 'expo-av';
 import Lisps from '../../../../../../assets/data/Lisp';
 import { LispItem } from '../../../../../Types';
+import { router } from 'expo-router';
 
 export const defaultImage = require('../../../../../../assets/LSimages/1.png');
 export const defaultAudio = require('../../../../../../assets/LSound/Recording.m4a');
@@ -239,7 +240,7 @@ const CombinedScreen = () => {
                 {loading ? (
                   <ActivityIndicator size="large" color="#0000ff" />
                 ) : (
-                  <Pressable style={styles.buttonTwo} onPress={analyzeRecordings}>
+                  <Pressable style={styles.buttonTwo} onPress={()=>{analyzeRecordings(),router.push('starpage/SignIn/(tabs)/Test/LispResult')}}>
                     <Text style={styles.textStylo}>انهاء الاختبار و اظهار النتيجه</Text>
                   </Pressable>
                 )}

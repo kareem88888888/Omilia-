@@ -6,7 +6,7 @@ export default function ExerStack(){
 
         <Stack.Screen name="Lispexercise" options={{headerShown:false}}/>
 
-        <Stack.Screen name ="Stutexercise" />
+        <Stack.Screen name ="Stutexercise" options={{headerShown:false}} />
         
         <Stack.Screen name ="breath" options={{headerShown:false}}/>
         <Stack.Screen name ="Lesan" options={{headerShown:false}} />

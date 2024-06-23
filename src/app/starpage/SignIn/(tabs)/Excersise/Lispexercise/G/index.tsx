@@ -11,9 +11,9 @@ export default function App() {
       <StatusBar backgroundColor='#DBA6F7' />
       <View style={styles.FirstView}>
         <TouchableOpacity onPress={() => {}}>
-         <Image resizeMode='contain' source={require('../../../../../../../assets/icons/arrowWhite.png')} style={{width:25,height:25,}}/>
+         <Image resizeMode='contain' source={require('../../../../../../../../assets/icons/arrowWhite.png')} style={{width:25,height:25,}}/>
          </TouchableOpacity>
-         <Text style={styles.txt}>تمارين التلعثم</Text>
+         <Text style={styles.txt}>تمارين حرف الجيم</Text>
         <View style={{width:20,height:20}}></View>
       </View>
 
@@ -38,6 +38,23 @@ export default function App() {
        
       </TouchableOpacity>
 
+
+
+      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/G/ExG')}>
+        <Text style={styles.textStylo}>تمارين خاصة بلثغة حرف الجيم </Text>
+       
+      </TouchableOpacity>
+
+
+      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/G/wordsG')}>
+        <Text style={styles.textStylo}>{"كلمات بحرف الجيم"}</Text>
+      
+
+      </TouchableOpacity>
+    
+    
+
+      
         </View>
       
     </View>
