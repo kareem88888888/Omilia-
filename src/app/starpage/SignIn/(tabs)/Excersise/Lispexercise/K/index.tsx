@@ -40,14 +40,14 @@ export default function App() {
 
 
 
-      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/2AF/Ex2')}>
-        <Text style={styles.textStylo}>تمارين خاصة بلثغة حرف القاف </Text>
+      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/K/ExK')}>
+        <Text style={styles.textStylo}>تمارين خاصة بلثغة حرف الكاف </Text>
        
       </TouchableOpacity>
 
 
-      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/2AF/words2')}>
-        <Text style={styles.textStylo}>{"كلمات بحرف القاف"}</Text>
+      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/K/wordsK')}>
+        <Text style={styles.textStylo}>{"كلمات بحرف الكاف"}</Text>
       
 
       </TouchableOpacity>

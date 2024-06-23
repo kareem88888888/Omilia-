@@ -1,4 +1,4 @@
-// تمارين حرف الكاف
+// تمارين حرف الراء
 
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View ,Image,Dimensions, TouchableOpacity, Pressable} from 'react-native';
@@ -13,7 +13,7 @@ export default function App() {
         <TouchableOpacity onPress={() => {}}>
          <Image resizeMode='contain' source={require('../../../../../../../../assets/icons/arrowWhite.png')} style={{width:25,height:25,}}/>
          </TouchableOpacity>
-         <Text style={styles.txt}>تمارين حرف الكاف</Text>
+         <Text style={styles.txt}>تمارين حرف الراء</Text>
         <View style={{width:20,height:20}}></View>
       </View>
 
@@ -40,14 +40,14 @@ export default function App() {
 
 
 
-      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/2AF/Ex2')}>
-        <Text style={styles.textStylo}>تمارين خاصة بلثغة حرف القاف </Text>
+      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/R/ExR')}>
+        <Text style={styles.textStylo}>تمارين خاصة بلثغة حرف الراء </Text>
        
       </TouchableOpacity>
 
 
-      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/2AF/words2')}>
-        <Text style={styles.textStylo}>{"كلمات بحرف القاف"}</Text>
+      <TouchableOpacity  style={styles.buttonTwo} onPress={()=>router.push('starpage/SignIn/(tabs)/Excersise/Lispexercise/R/wordsR')}>
+        <Text style={styles.textStylo}>{"كلمات بحرف الراء"}</Text>
       
 
       </TouchableOpacity>

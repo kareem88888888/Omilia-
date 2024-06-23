@@ -129,7 +129,7 @@ const LispTestItem = ({ Problem, addRecordingUri }: LispTestProps) => {
         <View style={styles.Reco}>
           <View style={styles.waveformContainer}>
             <View style={styles.waveform}>
-              <Image source={require('../../../../../../assets/Voice.png')} resizeMode='stretch' />
+              <Image source={require('../../../../../../assets/reco.png')} resizeMode='contain' />
             </View>
             <Pressable style={styles.micButton} onPress={recording ? stopRecording : startRecording}>
               {recording ? <FontAwesome name="square" size={30} color="white" /> : <MaterialIcons name="mic" size={50} color="white" />}

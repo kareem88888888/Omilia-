@@ -3,6 +3,8 @@ export type LispItem={
     name:string,
     image:NodeRequire |null ,
     audio:NodeRequire | null
+    desc?:string,
+    Video?:NodeRequire | null,
 }
 
 
@@ -11,4 +13,6 @@ export type StutItem={
     name:string,
     image:NodeRequire |null ,
     audio:NodeRequire | null
+    desc?:string,
+    Video?:NodeRequire | null,
 }

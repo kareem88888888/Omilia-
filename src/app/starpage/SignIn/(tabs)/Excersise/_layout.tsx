@@ -1,11 +1,16 @@
 import { Stack } from "expo-router";
-import { View,Text } from "react-native";
 
 export default function ExerStack(){
     return <Stack>
-        <Stack.Screen name="index"/>
+        <Stack.Screen name="index" options={{headerShown:false}}/>
 
-        <Stack.Screen name="Lispexercise" />
+        <Stack.Screen name="Lispexercise" options={{headerShown:false}}/>
+
         <Stack.Screen name ="Stutexercise" />
+        
+        <Stack.Screen name ="breath" options={{headerShown:false}}/>
+        <Stack.Screen name ="Lesan" options={{headerShown:false}} />
+        <Stack.Screen name ="mouth" options={{headerShown:false}} />
+
     </Stack>
 }

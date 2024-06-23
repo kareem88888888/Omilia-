@@ -3,18 +3,17 @@ import { View,Text } from "react-native";
 
 export default function LispStack(){
     return <Stack>
-        <Stack.Screen name="index"/>
 
-        <Stack.Screen name="2AF" />
-        <Stack.Screen name ="G" />
-        <Stack.Screen name ="K" />
-        <Stack.Screen name ="R" />
-        <Stack.Screen name ="S" />
-        <Stack.Screen name ="Z" />
+        <Stack.Screen name="index" options={{headerShown:false}}/>
 
-        <Stack.Screen name ="breath" />
-        <Stack.Screen name ="Lesan" />
-        <Stack.Screen name ="mouth" />
+        <Stack.Screen name="2AF" options={{headerShown:false}} />
+        <Stack.Screen name ="G"  options={{headerShown:false}}/>
+        <Stack.Screen name ="K" options={{headerShown:false}} />
+        <Stack.Screen name ="R"  options={{headerShown:false}}  />
+        <Stack.Screen name ="S"  options={{headerShown:false}} />
+        <Stack.Screen name ="Z"  options={{headerShown:false}}/>
+
+        
 
     
 
