@@ -165,6 +165,7 @@ const CombinedScreen = () => {
   const [results, setResults] = useState<any[]>([]);
   const [userName, setUserName] = useState('');
   const [nameEntered, setNameEntered] = useState(false); // Track if name is entered
+  const[result,setresult]=useState('')
 
   const NS_API_KEY = 'sk_7cd7d2ecd5f66a4bfc4214c93e436c6c1184f62025f5d68e40b32db8ceb50563';
    const user = 'i11182807';
@@ -210,7 +211,7 @@ const CombinedScreen = () => {
           const jobId = data1.data.jobId;
 
           // Wait for some time to ensure the job is processed
-          await new Promise(resolve => setTimeout(resolve, 60000));
+          await new Promise(resolve => setTimeout(resolve, 30000));
 
           console.log(`Fetching transcription for Job ID: ${jobId}`);
 
@@ -227,44 +228,29 @@ const CombinedScreen = () => {
 
           // Check if the transcript exists at the expected path
           const transcript = data2.data?.result?.transcription?.channels?.[0]?.transcript;
-          if (transcript) {
+         
             
             console.log('Transcription:', transcript , id, userName);
-            
-            let encoded = Base64.encode('11182807:60-dayfreetrial')
-            let auth = 'Basic' + encoded
-                           // Make the additional API call with userName, id, and transcript
-                           try {
-                            const omiliaResponse = await fetch('http://omilia-001-site1.ctempurl.com/Api/lisp_letter', {
-                              method: 'POST',
-                              headers: {
-                                'Authorization': auth,
-                                'Content-Type': 'application/json'
-                              },
-                              body: JSON.stringify({
-                                user_id: userName,
-                                word_id: id,
-                                spoken_word: transcript
-                              })
-                            });
-                          
-                            if (!omiliaResponse.ok) {
-                              throw new Error(`HTTP error! Status: ${omiliaResponse.status}`);
-                            }
-                          
-                            const omiliaData = await omiliaResponse.json();
-                            console.log('Omilia API response:', omiliaData);
-                          
-                            return { data: transcript, id, omiliaData };
-                          } catch (error) {
-                            console.error('Error processing API request:', error);
-                            return { data: null, id, omiliaData: null }    
-                          }}}
-                          catch (error) {
-                            console.error('Error during analysis:', error)
-                        }}
+
+
+
+            const url = `http://omilia.ddns.net/Api/lisp_letter?user_id=${userName}&word_id=${id}&spoken_word=${transcript}`;
+            try {
+              const res = await fetch(url);
+              const data3 = await res.json(); // assuming the response is JSON
+              console.log(data3)
+              console.log(data3[0])
+              setresult(data3[0])
+              
+            } catch (error) {
+              console.error(error);
+            }
+          }
+      
+          catch (error) {
+            console.error('Error during analysis:', error)};        
                     
-    ));
+    }));
 
       setResults(results);
       console.log('Analysis complete. Results:', results);
@@ -288,7 +274,7 @@ const CombinedScreen = () => {
       {!nameEntered && (
         <View style={styles.container}>
           <TextInput
-            placeholder="Enter your name"
+            placeholder="Enter your num"
             onChangeText={text => setUserName(text)}
             value={userName}
             style={{
@@ -327,9 +313,15 @@ const CombinedScreen = () => {
                   {loading ? (
                     <ActivityIndicator size="large" color="#0000ff" />
                   ) : (
-                    <Pressable style={styles.buttonTwo} onPress={() => { analyzeRecordings(); router.push('starpage/SignIn/(tabs)/Test/LispResult') }}>
+                    <>
+                    <Text style={{fontSize:35}}>{result}</Text>
+                    <Pressable style={styles.buttonTwo} onPress={() => { analyzeRecordings(); }}>
                       <Text style={styles.textStylo}>انهاء الاختبار و اظهار النتيجه</Text>
                     </Pressable>
+
+                    
+                    
+                    </>
                   )}
                 </View>
               }
